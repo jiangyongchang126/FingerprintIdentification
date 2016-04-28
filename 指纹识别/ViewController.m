@@ -84,63 +84,7 @@
                         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                             //用户选择其他验证方式，切换主线程处理
                             
-                            NSString *cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
-                            NSString *otherButtonTitle = NSLocalizedString(@"OK", nil);
-                            
-                            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"输入密码" message:@"蒋永昌" preferredStyle:UIAlertControllerStyleAlert];
-                            
-                            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                                // Listen for changes to the text field's text so that we can toggle the current
-                                // action's enabled property based on whether the user has entered a sufficiently
-                                // secure entry.
-                                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldTextDidChangeNotification:) name:UITextFieldTextDidChangeNotification object:textField];
-                                
-                                textField.secureTextEntry = YES;
-                            }];
-                            
-                            // Create the actions.
-                            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                                NSLog(@"The \"Okay/Cancel\" alert's cancel action occured.");
-                                
-                                // Stop listening for text changed notifications.
-                                [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
-                        
-                            }];
-                            
-                            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                NSLog(@"The \"Okay/Cancel\" alert's other action occured.");
-                                
-                                if ([alertController.textFields.firstObject.text isEqualToString:@"123456"]) {
-                                    
-                                    
-                                    UIViewController *viewC = [[UIViewController alloc]init];
-                                    viewC.view.backgroundColor = [UIColor redColor];
-                                    
-                                    [self presentViewController:viewC animated:YES completion:nil];
-                                    
-
-                                }
-                                
-                                // Stop listening for text changed notifications.
-                                [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
-                                
-                                
-
-                            }];
-                            
-                            otherAction.enabled = NO;
-                            
-                            // Hold onto the secure text alert action to toggle the enabled/disabled state when the text changed.
-                            self.secureTextAlertAction = otherAction;
-
-                            
-                            // Add the actions.
-                            [alertController addAction:cancelAction];
-                            [alertController addAction:otherAction];
-                            
-                            [self presentViewController:alertController animated:YES completion:nil];
-                        
- 
+                            [self alertAction];
                             
                         }];
                         break;
@@ -187,7 +131,70 @@
     }
 }
 
+// 弹窗事件
+- (void)alertAction{
+    
+    NSString *cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
+    NSString *otherButtonTitle = NSLocalizedString(@"OK", nil);
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"输入密码" message:@"蒋永昌" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        // Listen for changes to the text field's text so that we can toggle the current
+        // action's enabled property based on whether the user has entered a sufficiently
+        // secure entry.
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextFieldTextDidChangeNotification:) name:UITextFieldTextDidChangeNotification object:textField];
+        
+        textField.secureTextEntry = YES;
+    }];
+    
+    // Create the actions.
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"The \"Okay/Cancel\" alert's cancel action occured.");
+        
+        // Stop listening for text changed notifications.
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
+        
+    }];
+    
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:otherButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"The \"Okay/Cancel\" alert's other action occured.");
+        
+        if ([alertController.textFields.firstObject.text isEqualToString:@"123456"]) {
+            
+            
+            UIViewController *viewC = [[UIViewController alloc]init];
+            viewC.view.backgroundColor = [UIColor redColor];
+            
+            [self presentViewController:viewC animated:YES completion:nil];
+            
+            
+        }
+        
+        // Stop listening for text changed notifications.
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
+        
+        
+        
+    }];
+    
+    otherAction.enabled = NO;
+    
+    // Hold onto the secure text alert action to toggle the enabled/disabled state when the text changed.
+    self.secureTextAlertAction = otherAction;
+    
+    
+    // Add the actions.
+    [alertController addAction:cancelAction];
+    [alertController addAction:otherAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
 
+}
+
+// 监听输入框中字符数
 - (void)handleTextFieldTextDidChangeNotification:(NSNotification *)notification {
     UITextField *textField = notification.object;
     
