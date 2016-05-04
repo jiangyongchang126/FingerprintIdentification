@@ -17,6 +17,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+
+    //    [[NSBundle mainBundle].infoDictionary setValue:@"2.0" forKey:@"CFBundleVersion"];
+//    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+//    
+//            NSString *titleStr = [NSString stringWithFormat:@"新版本%.1f:是否更新？",[currentVersion floatValue]];
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:titleStr message:@"提示:建议更新版本,继续使用老版本可能存在功能异常" delegate:self cancelButtonTitle:@"不用了" otherButtonTitles:@"去更新", nil];
+//            [alert show];
+//    
+    
+    
+
     return YES;
 }
 

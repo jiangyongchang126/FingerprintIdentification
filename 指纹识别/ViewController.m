@@ -24,6 +24,15 @@
 }
 - (IBAction)zhiWen:(UIButton *)sender {
     
+    if (!([UIDevice currentDevice].systemVersion.doubleValue >= 8.0)) {
+        
+        [self showAlertWithTitle:@"不支持指纹识别" Block:^{
+            return ;
+        }];
+        
+        return;
+    }
+
     [self authenticateUser];
 }
 
