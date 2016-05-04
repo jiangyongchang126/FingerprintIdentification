@@ -15,6 +15,7 @@
 		B34C7BD41CD11B470090C5BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B34C7BD21CD11B470090C5BA /* LaunchScreen.storyboard */; };
 		B34C7BDF1CD11B470090C5BA /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B34C7BDE1CD11B470090C5BA /* ____UITests.m */; };
 		B34C7BEB1CD11C2D0090C5BA /* PopWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34C7BEA1CD11C2D0090C5BA /* PopWindowViewController.m */; };
+		B3B338251CDA4F8B005BA393 /* First.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B338241CDA4F8B005BA393 /* First.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,9 @@
 		B34C7BE01CD11B470090C5BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B34C7BE91CD11C2D0090C5BA /* PopWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopWindowViewController.h; sourceTree = "<group>"; };
 		B34C7BEA1CD11C2D0090C5BA /* PopWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopWindowViewController.m; sourceTree = "<group>"; };
+		B3B338221CDA4F38005BA393 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		B3B338231CDA4F8B005BA393 /* First.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = First.h; sourceTree = "<group>"; };
+		B3B338241CDA4F8B005BA393 /* First.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = First.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		B34C7BB81CD11B470090C5BA = {
 			isa = PBXGroup;
 			children = (
+				B3B338221CDA4F38005BA393 /* Header.h */,
 				B34C7BC31CD11B470090C5BA /* 指纹识别 */,
 				B34C7BDD1CD11B470090C5BA /* 指纹识别UITests */,
 				B34C7BC21CD11B470090C5BA /* Products */,
@@ -90,6 +95,8 @@
 				B34C7BCB1CD11B470090C5BA /* ViewController.m */,
 				B34C7BE91CD11C2D0090C5BA /* PopWindowViewController.h */,
 				B34C7BEA1CD11C2D0090C5BA /* PopWindowViewController.m */,
+				B3B338231CDA4F8B005BA393 /* First.h */,
+				B3B338241CDA4F8B005BA393 /* First.m */,
 				B34C7BCD1CD11B470090C5BA /* Main.storyboard */,
 				B34C7BD01CD11B470090C5BA /* Assets.xcassets */,
 				B34C7BD21CD11B470090C5BA /* LaunchScreen.storyboard */,
@@ -219,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B34C7BCC1CD11B470090C5BA /* ViewController.m in Sources */,
+				B3B338251CDA4F8B005BA393 /* First.m in Sources */,
 				B34C7BC91CD11B470090C5BA /* AppDelegate.m in Sources */,
 				B34C7BEB1CD11C2D0090C5BA /* PopWindowViewController.m in Sources */,
 				B34C7BC61CD11B470090C5BA /* main.m in Sources */,
